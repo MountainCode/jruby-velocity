@@ -1,0 +1,3 @@
+#foreach ($w in $weapons)
+  - $w
+#end
