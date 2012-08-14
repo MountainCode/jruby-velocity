@@ -1,6 +1,7 @@
 require 'java'
+require 'yaml'
 
-require 'MySqlDataSource.rb'
+require_relative 'MySqlDataSource.rb'
 
 class VelocityLauncher
   def initialize context, template
@@ -19,7 +20,10 @@ class VelocityLauncher
     vc = VelocityContext.new(@context)
     writer = StringWriter.new
     loader = DataSourceResourceLoader.new
-    loader.setDataSource(MySqlDataSource.new 'jdbc:mysql://localhost/test', 'root', 'swordfish')
+    connection = YAML.load_file 'src/spec/resources/sql_connection.yaml'
+
+    loader.setDataSource(MySqlDataSource.new "jdbc:mysql://#{connection['server']}/#{connection['database']}",
+      connection['username'], connection['password'])
     {
       'resource.loader' => 'ds',
       'ds.resource.loader.instance' => loader,
@@ -37,6 +41,6 @@ class VelocityLauncher
     Velocity.init
     t = RuntimeSingleton.getTemplate 'template.vm'
     t.merge(vc, writer)
-    return writer.getBuffer
+    return writer.getBuffer.toString
   end
 end

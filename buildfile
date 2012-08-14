@@ -8,7 +8,7 @@ GROUP = "velocity"
 COPYRIGHT = ""
 
 # Specify Maven 2.0 remote repositories here, like this:
-repositories.remote << "http://www.ibiblio.org/maven2/"
+repositories.remote << "http://repo1.maven.org/maven2"
 
 desc "The Velocity project"
 define "velocity" do
@@ -16,4 +16,7 @@ define "velocity" do
   project.version = VERSION_NUMBER
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
+
+  test.with 'mysql:mysql-connector-java:jar:5.1.21', transitive('org.apache.velocity:velocity:jar:1.7')
+
 end

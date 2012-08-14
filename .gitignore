@@ -1,1 +1,5 @@
 .project
+velocity.log
+target/
+reports/
+src/spec/resources/sql_connection.yaml
