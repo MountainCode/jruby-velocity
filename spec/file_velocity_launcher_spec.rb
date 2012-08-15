@@ -1,8 +1,8 @@
 require 'extensions/all'
-require_relative '../../main/ruby/FileVelocityLauncher.rb'
+require_relative '../lib/velocity/FileVelocityLauncher.rb'
 
 describe FileVelocityLauncher do
-	let(:launcher) { FileVelocityLauncher.new 'src/spec/resources' }
+	let(:launcher) { FileVelocityLauncher.new 'spec/resources' }
 	subject { launcher }
 	it 'should merge a template from a velocity file' do
 		context = {

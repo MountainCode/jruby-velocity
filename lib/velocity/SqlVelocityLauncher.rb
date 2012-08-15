@@ -1,5 +1,6 @@
+require 'extensions/all'
 require 'java'
-require 'src/main/ruby/VelocityLauncher.rb'
+require_relative 'VelocityLauncher.rb'
 
 require_relative 'MySqlDataSource.rb'
 

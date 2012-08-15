@@ -1,5 +1,6 @@
+require 'extensions/all'
 require 'java'
-require 'src/main/ruby/VelocityLauncher.rb'
+require_relative 'VelocityLauncher.rb'
 
 java_import 'org.apache.velocity.app.Velocity'
 
