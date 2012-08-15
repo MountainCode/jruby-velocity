@@ -17,7 +17,8 @@ define "velocity", :layout => gem_layout do
   project.version = VERSION_NUMBER
   project.group = GROUP
   manifest["Implementation-Vendor"] = COPYRIGHT
-
-  test.with 'mysql:mysql-connector-java:jar:5.1.21', transitive('org.apache.velocity:velocity:jar:1.7')
+  
+  compile.with transitive('org.apache.velocity:velocity:jar:1.7')
+  test.with 'mysql:mysql-connector-java:jar:5.1.21'
 
 end

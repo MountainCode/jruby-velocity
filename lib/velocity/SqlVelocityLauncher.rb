@@ -1,8 +1,6 @@
-require 'extensions/all'
 require 'java'
-require_relative 'VelocityLauncher.rb'
 
-require_relative 'MySqlDataSource.rb'
+require 'lib/velocity/MySqlDataSource.rb'
 
 java_import 'org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader'
 

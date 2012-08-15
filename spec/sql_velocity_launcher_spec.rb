@@ -1,6 +1,5 @@
-require 'extensions/all'
 require 'yaml'
-require_relative '../lib/velocity/SqlVelocityLauncher.rb'
+require 'lib/velocity/SqlVelocityLauncher.rb'
 
 describe SqlVelocityLauncher do
 	let(:launcher) { SqlVelocityLauncher.new YAML.load_file('spec/resources/sql_connection.yaml') }

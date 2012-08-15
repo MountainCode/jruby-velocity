@@ -1,5 +1,4 @@
-require 'extensions/all'
-require_relative '../lib/velocity/FileVelocityLauncher.rb'
+require 'lib/velocity/FileVelocityLauncher.rb'
 
 describe FileVelocityLauncher do
 	let(:launcher) { FileVelocityLauncher.new 'spec/resources' }
