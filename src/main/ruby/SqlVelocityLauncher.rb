@@ -1,13 +1,15 @@
 require 'java'
 require 'src/main/ruby/VelocityLauncher.rb'
 
+require_relative 'MySqlDataSource.rb'
+
 java_import 'org.apache.velocity.app.Velocity'
+java_import 'org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader'
 
 class SqlVelocityLauncher
   include VelocityLauncher
-  def initialize
+  def initialize connection
     loader = DataSourceResourceLoader.new
-    connection = YAML.load_file 'src/spec/resources/sql_connection.yaml'
 
     loader.setDataSource(MySqlDataSource.new "jdbc:mysql://#{connection['server']}/#{connection['database']}",
       connection['username'], connection['password'])

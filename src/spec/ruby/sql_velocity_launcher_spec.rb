@@ -1,13 +1,15 @@
 require 'extensions/all'
+require 'yaml'
 require_relative '../../main/ruby/SqlVelocityLauncher.rb'
 
 describe SqlVelocityLauncher do
+	let(:launcher) { SqlVelocityLauncher.new YAML.load_file('src/spec/resources/sql_connection.yaml') }
+	subject { launcher }
 	it 'should merge a template from a database table' do
 		context = {
 		  'host' => 'Cardinal Fang',
 		  'weapons' => ['Fear', 'Surprise', 'Ruthless Efficiency']
 		}
-		launcher = SqlVelocityLauncher.new
-		launcher.merge(context, 'template.vm').should eq "- Fear\n- Surprise\n- Ruthless Efficiency\n"
+		subject.merge(context, 'template.vm').should eq "- Fear\n- Surprise\n- Ruthless Efficiency\n"
 	end
 end
