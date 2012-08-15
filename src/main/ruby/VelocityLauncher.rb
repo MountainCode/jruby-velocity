@@ -3,11 +3,7 @@ require 'yaml'
 
 require_relative 'MySqlDataSource.rb'
 
-class VelocityLauncher
-  def initialize context, template
-    @context = context
-    @template = template
-  end
+module VelocityLauncher
 
   java_import 'org.apache.velocity.Template'
   java_import 'org.apache.velocity.app.Velocity'
@@ -16,9 +12,7 @@ class VelocityLauncher
   java_import 'org.apache.velocity.runtime.RuntimeSingleton'
   java_import 'org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader'
 
-  def run
-    vc = VelocityContext.new(@context)
-    writer = StringWriter.new
+  def self.included(base)
     loader = DataSourceResourceLoader.new
     connection = YAML.load_file 'src/spec/resources/sql_connection.yaml'
 
@@ -39,6 +33,11 @@ class VelocityLauncher
       Velocity.setProperty key, value
     end
     Velocity.init
+  end
+
+  def run
+    vc = VelocityContext.new(@context)
+    writer = StringWriter.new
     t = RuntimeSingleton.getTemplate 'template.vm'
     t.merge(vc, writer)
     return writer.getBuffer.toString
