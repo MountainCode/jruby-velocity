@@ -6,12 +6,9 @@ java_import 'org.apache.velocity.app.Velocity'
 class FileVelocityLauncher
   include VelocityLauncher
   def initialize template_dir
-  	{
+    init({
       'resource.loader' => 'file',
       'file.resource.loader.path' => template_dir
-    }.each do |key, value|
-      Velocity.setProperty key, value
-    end
-    Velocity.init
+    })
   end
 end

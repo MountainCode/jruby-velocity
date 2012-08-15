@@ -2,9 +2,17 @@ require 'java'
 
 module VelocityLauncher
 
-  java_import 'org.apache.velocity.VelocityContext'
-  java_import 'java.io.StringWriter'
-  java_import 'org.apache.velocity.runtime.RuntimeSingleton'
+java_import 'org.apache.velocity.app.Velocity'
+java_import 'org.apache.velocity.VelocityContext'
+java_import 'java.io.StringWriter'
+java_import 'org.apache.velocity.runtime.RuntimeSingleton'
+
+  def init properties
+    properties.each do |key, value|
+      Velocity.setProperty key, value
+    end
+    Velocity.init
+  end
 
   def merge context, template
     vc = VelocityContext.new(context)
