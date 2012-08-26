@@ -1,7 +1,7 @@
 require 'lib/velocity/FileVelocityLauncher.rb'
 
-describe FileVelocityLauncher do
-	let(:launcher) { FileVelocityLauncher.new 'spec/resources' }
+describe Velocity::FileVelocityLauncher do
+	let(:launcher) { Velocity::FileVelocityLauncher.new 'spec/resources' }
 	subject { launcher }
 	it 'should merge a template from a velocity file' do
 		context = {

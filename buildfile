@@ -19,6 +19,26 @@ define "velocity", :layout => gem_layout do
   manifest["Implementation-Vendor"] = COPYRIGHT
   
   compile.with transitive('org.apache.velocity:velocity:jar:1.7')
+  package(:gem).path('lib')
+  package(:gem).spec do |s|
+    s.name          = 'velocity'
+    s.version       = '1.0.0'
+    s.date          = '2012-08-15'
+    s.summary       = 'Velocity Templates for JRuby'
+    s.description   = 'Velocity Templates for JRuby'
+    s.author        = 'Chris Kentfield'
+    s.email         = 'ridevermont@gmail.com'
+    s.files         = ['lib/velocity.rb', 'lib/velocity/FileVelocityLauncher.rb']
+    s.homepage      = 'http://logic-shop.com/velocity-gem'
+  end
+
+  clean do
+    rm 'lib/*.jar'
+  end
+
+  build do
+    cp compile.dependencies.collect { |t| t.to_s }, project.path_to('lib')
+  end
   test.with 'mysql:mysql-connector-java:jar:5.1.21'
 
 end
