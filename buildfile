@@ -33,7 +33,8 @@ define "velocity", :layout => gem_layout do
   end
 
   clean do
-    rm 'lib/*.jar'
+    rm Dir.glob('lib/*.jar')
+    rm 'velocity.log'
   end
 
   build do
