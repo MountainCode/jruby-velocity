@@ -28,7 +28,7 @@ define "velocity", :layout => gem_layout do
     s.description   = 'Velocity Templates for JRuby'
     s.author        = 'Chris Kentfield'
     s.email         = 'ridevermont@gmail.com'
-    s.files         = ['lib/velocity.rb', 'lib/velocity/FileVelocityLauncher.rb']
+    s.files         = ['lib/velocity.rb']
     s.homepage      = 'http://logic-shop.com/velocity-gem'
   end
 

@@ -1,5 +1,5 @@
 require 'java'
-require 'lib/velocity/VelocityLauncher.rb'
+require 'lib/velocity/velocity_launcher'
 
 module Velocity
   class FileVelocityLauncher
