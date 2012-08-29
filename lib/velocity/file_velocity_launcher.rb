@@ -1,6 +1,3 @@
-require 'java'
-require 'lib/velocity/velocity_launcher'
-
 module Velocity
   class FileVelocityLauncher
     include VelocityLauncher

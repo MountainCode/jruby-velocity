@@ -1,7 +1,3 @@
-require 'java'
-require 'lib/velocity/velocity_launcher'
-require 'lib/velocity/my_sql_data_source'
-
 java_import 'org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader'
 
 module Velocity

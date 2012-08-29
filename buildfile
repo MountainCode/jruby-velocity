@@ -28,17 +28,21 @@ define "velocity", :layout => gem_layout do
     s.description   = 'Velocity Templates for JRuby'
     s.author        = 'Chris Kentfield'
     s.email         = 'ridevermont@gmail.com'
-    s.files         = ['lib/velocity.rb']
+    s.files         = ['lib/velocity.rb'] + Dir.glob('lib/velocity/*.rb')
+    s.files         << Dir.glob('velocity-libs/*.jar')
     s.homepage      = 'http://logic-shop.com/velocity-gem'
   end
 
   clean do
-    rm Dir.glob('lib/*.jar')
-    rm 'velocity.log'
+    rm_rf 'velocity-libs' if File.exists? 'velocity-libs'
+    rm 'velocity.log' if File.exists? 'velocity.log'
   end
 
   build do
-    cp compile.dependencies.collect { |t| t.to_s }, project.path_to('lib')
+    if !File.exists? 'velocity-libs'
+      mkdir 'velocity-libs'
+    end
+    cp compile.dependencies.collect { |t| t.to_s }, project.path_to('velocity-libs')
   end
   test.with 'mysql:mysql-connector-java:jar:5.1.21'
 

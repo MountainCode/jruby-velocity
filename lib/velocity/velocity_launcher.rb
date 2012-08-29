@@ -1,5 +1,3 @@
-require 'java'
-
 module Velocity
   module VelocityLauncher
 
@@ -18,6 +16,7 @@ module Velocity
     def merge context, template
       vc = VelocityContext.new(context)
       writer = StringWriter.new
+      # Shouldn't be using a singleton here!
       t = RuntimeSingleton.getTemplate template
       t.merge(vc, writer)
       return writer.getBuffer.toString
