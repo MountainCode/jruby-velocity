@@ -29,7 +29,6 @@ define "velocity", :layout => gem_layout do
     s.author        = 'Chris Kentfield'
     s.email         = 'ridevermont@gmail.com'
     s.files         = ['lib/velocity.rb'] + Dir.glob('lib/velocity/*.rb')
-    s.files         << Dir.glob('velocity-libs/*.jar')
     s.homepage      = 'http://logic-shop.com/velocity-gem'
   end
 
