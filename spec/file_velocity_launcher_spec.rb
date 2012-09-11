@@ -15,7 +15,7 @@ describe Velocity::FileVelocityLauncher do
   it 'should merge a template from a file in a subdirectory' do
     context = {
       'title' => 'Nobody Expects Us!',
-      'host' => 'Cardinal Fang',
+      :host => 'Cardinal Fang',
       'weapons' => ['Fear', 'Surprise', 'Ruthless Efficiency']
     }
     merged = subject.merge(context, 'html/template.html')
@@ -34,7 +34,7 @@ describe Velocity::FileVelocityLauncher do
     l.listing_number = 'ABC123'
     l.description = 'A description'
     context = {
-      listings: [l]
+      :listings => [l]
     }
     merged = subject.merge context, 'html/listings.html'
     merged.should include 'description: A description'
