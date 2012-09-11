@@ -16,12 +16,16 @@ module Velocity
     end
 
     def merge context, template
-      vc = VelocityContext.new(context)
+      vc = VelocityContext.new(hash_converter.to_hash context)
       writer = StringWriter.new
-      # Shouldn't be using a singleton here!
       t = @ve.getTemplate template
       t.merge(vc, writer)
       return writer.getBuffer.toString
+    end
+
+    private
+    def hash_converter
+      HashConverter.new
     end
   end
 end
