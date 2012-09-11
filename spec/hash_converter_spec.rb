@@ -54,4 +54,13 @@ describe Velocity::HashConverter do
       converted['people'][0].is_a?(Hash).should be_true
     end
   end
+
+  describe 'when a hash uses symbols as keys' do
+    converter = Velocity::HashConverter.new
+    context = { :name => 'Bob' }
+    converted = converter.to_hash context
+    it 'should convert the keys to strings' do
+      converted.should have_key 'name'
+    end
+  end
 end

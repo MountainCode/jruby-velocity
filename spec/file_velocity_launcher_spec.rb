@@ -34,7 +34,7 @@ describe Velocity::FileVelocityLauncher do
     l.listing_number = 'ABC123'
     l.description = 'A description'
     context = {
-      'listings' => [l]
+      listings: [l]
     }
     merged = subject.merge context, 'html/listings.html'
     merged.should include 'description: A description'
