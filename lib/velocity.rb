@@ -6,5 +6,5 @@ require 'velocity/sql_velocity_launcher'
 require 'velocity/hash_converter'
 
 module Velocity
-  VERSION = '1.0.0'
+  VERSION = '0.1.0'
 end

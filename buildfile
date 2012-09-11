@@ -1,5 +1,5 @@
 # Version number for this release
-VERSION_NUMBER = "1.0.0"
+VERSION_NUMBER = "0.1.0"
 # Group identifier for your projects
 GROUP = "velocity"
 COPYRIGHT = ""
@@ -22,7 +22,7 @@ define "velocity", :layout => gem_layout do
   package(:gem).path('lib')
   package(:gem).spec do |s|
     s.name          = 'velocity'
-    s.version       = '1.0.0'
+    s.version       = '0.1.0'
     s.date          = '2012-08-15'
     s.summary       = 'Velocity Templates for JRuby'
     s.description   = 'Velocity Templates for JRuby'
