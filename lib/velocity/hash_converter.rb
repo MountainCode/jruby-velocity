@@ -3,15 +3,11 @@ module Velocity
     def to_hash obj
       hash = {}
       if(obj.is_a? Hash)
-        to_add = {}
-        to_delete = []
+        string_key_hash = {}
         obj.each do |key, value|
-          to_add[key.to_s] = to_hash value
-          to_delete << key if key.is_a? Symbol
+          string_key_hash[key.to_s] = to_hash value
         end
-        to_add.each { |k,v| obj[k] = v }
-        to_delete.each { |it| obj.delete it }
-        obj
+        string_key_hash
       elsif obj.is_a? Array
         obj.each_with_index { |item, i| obj[i] = to_hash item }
       elsif 0 == obj.instance_variables.length
