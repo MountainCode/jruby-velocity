@@ -25,10 +25,15 @@ define "velocity", :layout => gem_layout do
     s.name          = 'velocity'
     s.version       = Velocity::VERSION
     s.summary       = 'Velocity Templates for JRuby'
+    s.description   = <<-eos
+      Ruby wrapper for Java Velocity templates.
+      Includes classes for reading from a file or MySql database.
+      Works with ruby hashes, objects and arrays and has been tested with JRuby on Rails.
+    eos
     s.author        = 'Chris Kentfield'
     s.email         = 'ridevermont@gmail.com'
     s.files         = ['lib/velocity.rb'] + Dir.glob('lib/velocity/*.rb')
-    s.homepage      = 'http://logic-shop.com/velocity-gem'
+    s.homepage      = 'https://github.com/MountainCode/jruby-velocity'
   end
 
   clean do
