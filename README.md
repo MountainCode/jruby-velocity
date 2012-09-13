@@ -10,3 +10,10 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
 
     $ export JRUBY_OPTS=--1.9
     $ export JAVA_OPTS=-d32
+
+### Building
+
+You will need [Apache Buildr](http://buildr.apache.org/).  The main reason for choosing Buildr as a build tool is for easy access to Maven dependencies.
+
+    $ buildr test:*   # Run all tests even if no code changes have been made
+    $ build package   # Package as gem to target directory
