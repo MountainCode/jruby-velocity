@@ -1,4 +1,4 @@
-require 'lib/velocity'
+require 'velocity'
 
 class Person
   attr_accessor :name, :address

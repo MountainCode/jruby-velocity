@@ -1,4 +1,4 @@
-require 'lib/velocity'
+require 'velocity'
 
 describe Velocity::FileVelocityLauncher do
   let(:launcher) { Velocity::FileVelocityLauncher.new 'spec/resources' }
