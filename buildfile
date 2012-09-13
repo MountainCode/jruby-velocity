@@ -1,5 +1,6 @@
+require './lib/velocity/version'
 # Version number for this release
-VERSION_NUMBER = "0.1.0"
+VERSION_NUMBER = Velocity::VERSION
 # Group identifier for your projects
 GROUP = "velocity"
 COPYRIGHT = ""
@@ -22,10 +23,8 @@ define "velocity", :layout => gem_layout do
   package(:gem).path('lib')
   package(:gem).spec do |s|
     s.name          = 'velocity'
-    s.version       = '0.1.0'
-    s.date          = '2012-08-15'
+    s.version       = Velocity::VERSION
     s.summary       = 'Velocity Templates for JRuby'
-    s.description   = 'Velocity Templates for JRuby'
     s.author        = 'Chris Kentfield'
     s.email         = 'ridevermont@gmail.com'
     s.files         = ['lib/velocity.rb'] + Dir.glob('lib/velocity/*.rb')
