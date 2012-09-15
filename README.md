@@ -4,6 +4,7 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
 
 ## Usage
 
+### controller.rb
 ```ruby
   require 'java'
   require 'velocity'
@@ -19,6 +20,7 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
 
 ```
 
+### template.vm
 ```velocity
   Name: $first_name $last_name
   Occupation: $occupation
@@ -28,6 +30,8 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
     - $job
   #end
 ```
+
+See the [Velocity User Guide](http://velocity.apache.org/engine/devel/user-guide.html)
 
 ## Java Runtime Dependencies
 - org.apache.velocity:velocity:1.7
