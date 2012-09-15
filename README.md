@@ -5,10 +5,28 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
 ## Usage
 
 ```ruby
+  require 'java'
+  require 'velocity'
+
   engine = Velocity::FileVelocityLauncher.new 'path/to/templates'
   context = {
-
+    :first_name => 'Abraham',
+    :last_name => 'Lincoln',
+    :occupation => 'POTUS',
+    :job_history => ['Congressman', 'Lawyer', 'Vampire Hunter']
   }
+  puts engine.merge(context, 'template.vm')
+
+```
+
+```velocity
+  Name: $first_name $last_name
+  Occupation: $occupation
+
+  Job History:
+  #foreach($job in $job_history)
+    - $job
+  #end
 ```
 
 ## Java Runtime Dependencies
