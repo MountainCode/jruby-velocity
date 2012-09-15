@@ -1,25 +1,15 @@
 require './lib/velocity/version'
-# Version number for this release
-VERSION_NUMBER = Velocity::VERSION
-# Group identifier for your projects
-GROUP = "velocity"
-COPYRIGHT = ""
 
-# Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://repo1.maven.org/maven2"
 
 gem_layout = Layout.new
 gem_layout[:source, :main, :ruby] = 'lib'
 gem_layout[:source, :spec, :ruby] = 'spec'
 
-desc "The Velocity project"
+desc "JRuby Velocity Wrapper"
 define "velocity", :layout => gem_layout do
-
-  project.version = VERSION_NUMBER
-  project.group = GROUP
-  manifest["Implementation-Vendor"] = COPYRIGHT
+  project.version = Velocity::VERSION
   
-  compile.with transitive('org.apache.velocity:velocity:jar:1.7')
   package(:gem).path('lib')
   package(:gem).spec do |s|
     s.name          = 'velocity'
@@ -37,16 +27,9 @@ define "velocity", :layout => gem_layout do
   end
 
   clean do
-    rm_rf 'velocity-libs' if File.exists? 'velocity-libs'
     rm 'velocity.log' if File.exists? 'velocity.log'
   end
 
-  build do
-    if !File.exists? 'velocity-libs'
-      mkdir 'velocity-libs'
-    end
-    cp compile.dependencies.collect { |t| t.to_s }, project.path_to('velocity-libs')
-  end
+  test.with transitive('org.apache.velocity:velocity:jar:1.7')
   test.with 'mysql:mysql-connector-java:jar:5.1.21'
-
 end
