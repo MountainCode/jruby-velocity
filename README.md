@@ -17,7 +17,6 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
     :job_history => ['Congressman', 'Lawyer', 'Vampire Hunter']
   }
   puts engine.merge(context, 'template.vm')
-
 ```
 
 ### template.vm
@@ -30,6 +29,15 @@ Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVel
     - $job
   #end
 ```
+
+### output
+    Name: Abraham Lincoln
+    Occupation: POTUS
+
+    Job History:
+      - Congressman
+      - Lawyer
+      - Vampire Hunter
 
 See the [Velocity User Guide](http://velocity.apache.org/engine/devel/user-guide.html)
 
