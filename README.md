@@ -2,7 +2,7 @@
 
 Original idea stolen from [Martin Fowler](http://martinfowler.com/bliki/JRubyVelocity.html)
 
-When I originally build this, I was doing a lot of Java web development and used
+When I originally built this, I was doing a lot of Java web development and used
 Velocity a lot.  However, since discovering
 [Mustache templates](http://mustache.github.io/) which also has a
 [Java implementation](https://github.com/samskivert/jmustache), I no longer use
