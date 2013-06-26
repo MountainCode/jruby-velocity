@@ -1,0 +1,4 @@
+server: localhost
+database: jruby_velocity_test
+username: jruby_velocity
+password: swordfish

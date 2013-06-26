@@ -15,7 +15,7 @@ module Velocity
         'ds.resource.loader.description' => 'Velocity DataSource Resource Loader',
         'ds.resource.loader.class' => DataSourceResourceLoader.class.name,
         'ds.resource.loader.resource.datasource' => 'java:comp/env/jdbc/Velocity',
-        'ds.resource.loader.resource.table' => 'template',
+        'ds.resource.loader.resource.table' => 'templates',
         'ds.resource.loader.resource.keycolumn' => 'id',
         'ds.resource.loader.resource.templatecolumn' => 'body',
         'ds.resource.loader.resource.timestampcolumn' => 'lastModified'

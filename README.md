@@ -52,6 +52,14 @@ See the [Velocity User Guide](http://velocity.apache.org/engine/devel/user-guide
     $ export JRUBY_OPTS=--1.9
     $ export JAVA_OPTS=-d32
 
+## Test Database
+
+In order to run database tests, you'll need a test database.  Run the following to create it.
+
+```bash
+$ mysql -uroot -p < sql/create_test_db.sql
+```
+
 ## Building
 
 You will need [Apache Buildr](http://buildr.apache.org/).  The main reason for choosing Buildr as a build tool is for easy access to Maven dependencies.
