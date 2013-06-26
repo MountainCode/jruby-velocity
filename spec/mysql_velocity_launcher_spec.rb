@@ -1,8 +1,8 @@
 require 'yaml'
 require 'velocity'
 
-describe Velocity::SqlVelocityLauncher do
-  let(:launcher) { Velocity::SqlVelocityLauncher.new YAML.load_file('spec/resources/sql_connection.yaml') }
+describe Velocity::MySqlVelocityLauncher do
+  let(:launcher) { Velocity::MySqlVelocityLauncher.new YAML.load_file('spec/resources/sql_connection.yaml') }
   subject { launcher }
   it 'should merge a template from a database table' do
     context = {

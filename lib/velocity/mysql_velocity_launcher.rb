@@ -1,7 +1,7 @@
 java_import 'org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader'
 
 module Velocity
-  class SqlVelocityLauncher
+  class MySqlVelocityLauncher
     include VelocityLauncher
     def initialize connection
       loader = DataSourceResourceLoader.new
